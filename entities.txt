@@ -1,0 +1,80 @@
+				Сущности БД
+User
+ - id BIGINT NOT NULL, PK
+ - role_id BIGINT NOT NULL -> Role, FK
+ - login VARCHAR(255) NOT NULL
+ - password VARCHAR(255) NOT NULL
+
+Role
+ - id BIGINT NOT NULL, PK
+ - name VARCHAR(255) NOT NULL
+
+Seller
+ - id BIGINT NOT NULL, PK
+ - user_id BIGINT NOT NULL, FK -> Role
+ - name VARCHAR(255) NOT NULL
+
+Customer
+ - id BIGINT NOT NULL, PK
+ - user_id BIGINT NOT NULL, FK -> Role
+ - first_name VARCHAR(255)
+ - last_name VARCHAR(255)
+ - email VARCHAR(255) NOT NULL
+ - phone VARCHAR(255) NOT NULL
+ - address VARCHAR(255) NOT NULL
+
+Admin
+ - id BIGINT NOT NULL, PK
+ - user_id BIGINT NOT NULL, FK -> Role
+
+Seller_Product
+ - id BIGINT NOT NULL, PK
+ - product_id BIGINT NOT NULL, FK -> Product
+ - seller_id BIGINT NOT NULL, FK -> Seller
+ - price FLOAT NOT NULL
+
+Product
+ - id BIGINT NOT NULL, PK
+ - category_id BIGINT NOT NULL, FK -> Category
+ - name VARCHAR(255) NOT NULL
+ - description VARCHAR(255) NOT NULL
+ - price FLOAT NOT NULL
+
+Category
+ - id BIGINT NOT NULL, PK
+ - name VARCHAR(255) NOT NULL
+
+Order
+ - id BIGINT NOT NULL, PK
+ - customer_id BIGINT NOT NULL, FK -> Customer
+ - date DATE NOT NULL
+ - total_amount FLOAT NOT NULL
+
+Card
+ - id BIGINT NOT NULL, PK
+ - customer_id BIGINT NOT NULL UNIQUE, FK -> Customer
+ - card_number VARCHAR(255) NOT NULL
+
+CustomerCart
+ - id BIGINT NOT NULL, PK
+ - customer_id BIGINT NOT NULL UNIQUE, FK -> Customer
+ - product_quantity INT NOT NULL
+
+CustomerCart_Product
+ - id BIGINT NOT NULL, PK
+ - customer_cart_id BIGINT NOT NULL, FK -> CustomerCart
+ - product_id BIGINT NOT NULL, FK -> Product
+ - total_amount INT NOT NULL
+
+
+OrderItem
+ - id BIGINT NOT NULL, PK
+ - seller_product_id BIGINT NOT NULL, FK -> SellerProduct
+ - order_id BIGINT NOT NULL, FK -> Order
+ - total_amount FLOAT NOT NULL
+
+Log
+ - id BIGINT NOT NULL, PK
+ - action VARCHAR(255) NOT NULL
+ - user_id BIGINT NOT NULL -> User, FK
+ - datetime DATETIME NOT NULL
