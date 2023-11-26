@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "o9YrBS5UaTfro2FPA4leFnydMaboL8WSmipw7cT+8BLXHyFMomZP/RQqR5iodaADx4pJoP/Fsosw9B0g5brzjA==",
+  "success": true,
+  "projectFilePath": "D:\\БД\\database\\App\\App\\App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\мак\\.nuget\\packages\\consoletables\\2.6.1\\consoletables.2.6.1.nupkg.sha512"
+  ],
+  "logs": []
+}
